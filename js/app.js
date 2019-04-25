@@ -54,7 +54,6 @@ AnimalsWithHorns.readJsonforPage2();
 
 AnimalsWithHorns.loadAnimalsWithHorns = () => {
   AnimalsWithHorns.allAnimalsWithHorns.forEach(animalswithhorns => animalswithhorns.render());
-  AnimalsWithHorns.allAnimalsWithHornsForPage2.forEach(animalswithhorns => animalswithhorns.render());
   
 };
 
@@ -62,8 +61,6 @@ AnimalsWithHorns.loadAnimalsWithHorns = () => {
 AnimalsWithHorns.loadAnimalsWithHornsForPage2 = () => {
   AnimalsWithHorns.allAnimalsWithHornsForPage2.forEach(animalswithhorns => animalswithhorns.render());
 };
-
-AnimalsWithHorns.loadAnimalsWithHornsForPage2();
 
 
 
@@ -77,7 +74,8 @@ $('select[name="animalswithhorns"]').on('change', function() {
 
 
 $('.newGallery').on('click', function() {
-  $('main').children().remove();
+  $('main').children().not(':first').remove();
+  AnimalsWithHorns.allAnimalsWithHornsForPage2.forEach(animalswithhorns => animalswithhorns.render());
 })
 
 
