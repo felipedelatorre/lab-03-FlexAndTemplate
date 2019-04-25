@@ -12,9 +12,9 @@ For each of the features listed below, make an estimate of the time it will take
 
 Estimate of time needed to complete: 1-2 hours
 
-Start time: 
+Start time: 9am
 
-Finish time:
+Finish time: 11:45am
 
 Actual time needed to complete:
 

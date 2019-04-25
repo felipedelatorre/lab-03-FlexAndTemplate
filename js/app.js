@@ -25,7 +25,6 @@ AnimalsWithHorns.prototype.render = function () {
 };
 
 
-
 // Gets Data from page-1 json and adds it to allAnimalsWithHorns then loads
 AnimalsWithHorns.readJson = () => {
   $.get('./data/page-1.json')
@@ -50,14 +49,11 @@ AnimalsWithHorns.readJsonforPage2 = () => {
 //needs fix placements - adds json file to array
 AnimalsWithHorns.readJsonforPage2();
 
-
-
 AnimalsWithHorns.loadAnimalsWithHorns = () => {
   AnimalsWithHorns.allAnimalsWithHorns.forEach(animalswithhorns => animalswithhorns.render());
   
 };
 
-// its own function
 AnimalsWithHorns.loadAnimalsWithHornsForPage2 = () => {
   AnimalsWithHorns.allAnimalsWithHornsForPage2.forEach(animalswithhorns => animalswithhorns.render());
 };
@@ -72,14 +68,17 @@ $('select[name="animalswithhorns"]').on('change', function() {
 });
 
 
-
 $('.newGallery').on('click', function() {
-  $('main').children().not(':first').remove();
-  AnimalsWithHorns.allAnimalsWithHornsForPage2.forEach(animalswithhorns => animalswithhorns.render());
+  if($('button').attr('data-onOff') === 'on') {
+    $('main').children().not(':first').remove();
+    AnimalsWithHorns.allAnimalsWithHornsForPage2.forEach(animalswithhorns => animalswithhorns.render());
+    $('button').attr('data-onOff', 'off');
+  } else {
+    $('main').children().not(':first').remove();
+    AnimalsWithHorns.allAnimalsWithHorns.forEach(animalswithhorns => animalswithhorns.render());
+    $('button').attr('data-onOff', 'on');
+  }
 })
-
-
-
 
 $(() => {
   AnimalsWithHorns.readJson();
