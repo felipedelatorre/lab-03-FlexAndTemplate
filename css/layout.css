@@ -1,0 +1,14 @@
+header {
+  margin: 20px 0px 20px 0px;
+}
+
+main {
+  outline: 2px solid navajowhite;
+  width: 90%;
+  margin: auto;
+  position: relative;
+}
+
+.clearfix {
+  overflow: auto;
+}

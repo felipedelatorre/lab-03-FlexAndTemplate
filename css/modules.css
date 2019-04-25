@@ -1,0 +1,14 @@
+h1 {
+  font-family: 'Gloria Hallelujah', cursive;
+  font-size: 4em;
+  text-align: center;
+}
+
+.frame {
+  width: 25%;
+  height: 250px;
+  text-align: center;
+
+  float: left;
+}
+
