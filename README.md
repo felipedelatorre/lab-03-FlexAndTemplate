@@ -16,13 +16,13 @@ Start time: 9am
 
 Finish time: 11:45am
 
-Actual time needed to complete:
+Actual time needed to complete: 2 hours 45 minutes
 
 **Feature #2: Templeting**
 
 Estimate of time needed to complete: 2-3 hours
 
-Start time: 
+Start time: 1:45pm 
 
 Finish time:
 
