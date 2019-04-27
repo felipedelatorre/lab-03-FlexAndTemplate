@@ -18,15 +18,15 @@ Finish time: 11:45am
 
 Actual time needed to complete: 2 hours 45 minutes
 
-**Feature #2: Templeting**
+**Feature #2: Templating**
 
 Estimate of time needed to complete: 2-3 hours
 
 Start time: 1:45pm 
 
-Finish time:
+Finish time: 2:52pm
 
-Actual time needed to complete:
+Actual time needed to complete: 1 hour 7 minutes
 
 **Feature #3: Styling Flexbox**
 
