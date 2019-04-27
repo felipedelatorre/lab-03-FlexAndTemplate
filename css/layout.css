@@ -7,8 +7,8 @@ main {
   width: 90%;
   margin: auto;
   position: relative;
-}
 
-.clearfix {
-  overflow: auto;
+  display: flex;
+  align-content: flex-end;
+  flex-wrap: wrap;
 }
