@@ -1,29 +1,20 @@
 'use strict';
 
-function AnimalsWithHorns(animalswithhorns){
-  this.image_url = animalswithhorns.image_url;
-  this.title = animalswithhorns.title;
-  this.description = animalswithhorns.description;
-  this.keyword = animalswithhorns.keyword;
-  this.horns = animalswithhorns.horns;
-}
-
 AnimalsWithHorns.allAnimalsWithHorns = [];
 AnimalsWithHorns.allAnimalsWithHornsForPage2 = [];
 
+function AnimalsWithHorns(animalswithhorns){
+  for(let key in animalswithhorns){
+    this[key] = animalswithhorns[key];
+  }
+}
 
-AnimalsWithHorns.prototype.render = function () {
-  let animalswithhornsClone = $('#photo-template').clone();
-  let $animalswithhornsClone = $(animalswithhornsClone[0].content);
+AnimalsWithHorns.prototype.toHtml = function () {
+  let source = $('#photo-template').html();
+  let template = Handlebars.compile(source);
 
-  // $animalswithhornsClone.find('h2').text(this.title);
-  $animalswithhornsClone.find('img').attr('src', this.image_url);
-  $animalswithhornsClone.find('img').attr('data-keyword', this.keyword);
-  // $animalswithhornsClone.find('p').text(this.description);
-
-  $animalswithhornsClone.appendTo('main');
+  return template(this);
 };
-
 
 // Gets Data from page-1 json and adds it to allAnimalsWithHorns then loads
 AnimalsWithHorns.readJson = () => {
@@ -46,19 +37,19 @@ AnimalsWithHorns.readJsonforPage2 = () => {
     });
 };
 
-//needs fix placements - adds json file to array
 AnimalsWithHorns.readJsonforPage2();
 
 AnimalsWithHorns.loadAnimalsWithHorns = () => {
-  AnimalsWithHorns.allAnimalsWithHorns.forEach(animalswithhorns => animalswithhorns.render());
-  
+  AnimalsWithHorns.allAnimalsWithHorns.forEach(element => {
+    $('#herd').append(element.toHtml());
+  });
 };
 
 AnimalsWithHorns.loadAnimalsWithHornsForPage2 = () => {
-  AnimalsWithHorns.allAnimalsWithHornsForPage2.forEach(animalswithhorns => animalswithhorns.render());
+  AnimalsWithHorns.allAnimalsWithHornsForPage2.forEach(element => {
+    $('#herd').append(element.toHtml());
+  });
 };
-
-
 
 // Filter
 $('select[name="animalswithhorns"]').on('change', function() {
@@ -69,16 +60,37 @@ $('select[name="animalswithhorns"]').on('change', function() {
 
 
 $('.newGallery').on('click', function() {
-  if($('button').attr('data-onOff') === 'on') {
+  if($('.newGallery').attr('data-onOff') === 'on') {
     $('main').children().not(':first').remove();
-    AnimalsWithHorns.allAnimalsWithHornsForPage2.forEach(animalswithhorns => animalswithhorns.render());
+    AnimalsWithHorns.allAnimalsWithHornsForPage2.forEach(element => {
+      $('#herd').append(element.toHtml());
+    });
     $('button').attr('data-onOff', 'off');
   } else {
     $('main').children().not(':first').remove();
-    AnimalsWithHorns.allAnimalsWithHorns.forEach(animalswithhorns => animalswithhorns.render());
+    AnimalsWithHorns.allAnimalsWithHorns.forEach(element => {
+      $('#herd').append(element.toHtml());
+    });
     $('button').attr('data-onOff', 'on');
   }
 })
+
+// $('.sortByhornsOrTitle').on('click', function() {
+//   if($('button').attr('data-onOff') === 'on') {
+//     $('main').children().not(':first').remove();
+//     AnimalsWithHorns.allAnimalsWithHorns.forEach(element => {
+//       $('#herd').append(element.toHtml());
+//     });
+//     $('button').attr('data-onOff', 'off');
+//   } else {
+//     $('main').children().not(':first').remove();
+//     AnimalsWithHorns.allAnimalsWithHorns.forEach(element => {
+//       $('#herd').append(element.toHtml());
+//     });
+//     $('button').attr('data-onOff', 'on');
+//   }
+// })
+
 
 $(() => {
   AnimalsWithHorns.readJson();
