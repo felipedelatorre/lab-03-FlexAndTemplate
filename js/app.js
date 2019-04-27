@@ -37,18 +37,15 @@ AnimalsWithHorns.readJsonforPage2 = () => {
     });
 };
 
-//needs fix placements - adds json file to array
 AnimalsWithHorns.readJsonforPage2();
 
 AnimalsWithHorns.loadAnimalsWithHorns = () => {
-  // AnimalsWithHorns.allAnimalsWithHorns.forEach(animalswithhorns => animalswithhorns.render());
   AnimalsWithHorns.allAnimalsWithHorns.forEach(element => {
     $('#herd').append(element.toHtml());
   });
 };
 
 AnimalsWithHorns.loadAnimalsWithHornsForPage2 = () => {
-  // AnimalsWithHorns.allAnimalsWithHornsForPage2.forEach(animalswithhorns => animalswithhorns.render());
   AnimalsWithHorns.allAnimalsWithHornsForPage2.forEach(element => {
     $('#herd').append(element.toHtml());
   });
@@ -63,7 +60,7 @@ $('select[name="animalswithhorns"]').on('change', function() {
 
 
 $('.newGallery').on('click', function() {
-  if($('button').attr('data-onOff') === 'on') {
+  if($('.newGallery').attr('data-onOff') === 'on') {
     $('main').children().not(':first').remove();
     AnimalsWithHorns.allAnimalsWithHornsForPage2.forEach(element => {
       $('#herd').append(element.toHtml());
@@ -77,6 +74,23 @@ $('.newGallery').on('click', function() {
     $('button').attr('data-onOff', 'on');
   }
 })
+
+// $('.sortByhornsOrTitle').on('click', function() {
+//   if($('button').attr('data-onOff') === 'on') {
+//     $('main').children().not(':first').remove();
+//     AnimalsWithHorns.allAnimalsWithHorns.forEach(element => {
+//       $('#herd').append(element.toHtml());
+//     });
+//     $('button').attr('data-onOff', 'off');
+//   } else {
+//     $('main').children().not(':first').remove();
+//     AnimalsWithHorns.allAnimalsWithHorns.forEach(element => {
+//       $('#herd').append(element.toHtml());
+//     });
+//     $('button').attr('data-onOff', 'on');
+//   }
+// })
+
 
 $(() => {
   AnimalsWithHorns.readJson();
